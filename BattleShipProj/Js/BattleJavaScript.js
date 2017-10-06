@@ -21,9 +21,9 @@ function DrawGameBoard() {
     var size;
 
     switch (difficultyLevel) {
-        case 'easy': size = 5; break;
-        case 'medium': size = 10; break;
-        case 'hard': size = 15; break;
+        case 'easy': size = 5; boat = new Array(1); break;
+        case 'medium': size = 10; boat = new Array(2); break;
+        case 'hard': size = 15; boat = new Array(3); break;
         default: break;
     }
 
@@ -41,11 +41,13 @@ function DrawGameBoard() {
         }
     }
     
-
-    randomY = Math.floor((Math.random() * size));
-    randomX = Math.floor((Math.random() * size));
-    boat = $("#" + randomY + randomX).attr("id");
-    alert(boat);
+    for (var i = 0; i < boat.length; i++) {
+        randomY = Math.floor((Math.random() * size));
+        randomX = Math.floor((Math.random() * size));
+        boat[i] = (randomY.toString() + randomX.toString());
+        alert(boat[i]);
+    }
+    
 
     $("#" + randomY + randomX).click(function () {
 
