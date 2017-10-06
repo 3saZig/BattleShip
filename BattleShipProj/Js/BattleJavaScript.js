@@ -1,4 +1,6 @@
-﻿$(document).ready(function()
+﻿
+
+$(document).ready(function ()
 {
     $("#laddaKnappen").click(DrawGameBoard);
 
@@ -39,3 +41,4 @@ function DrawGameBoard(){
 
 
 }
+
