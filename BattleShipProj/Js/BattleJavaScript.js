@@ -49,9 +49,8 @@ function DrawGameBoard() {
     }
     
 
-    $("#" + randomY + randomX).click(function () {
+    $("#" + boat[0]).click(function () {
 
-        alert("yes");
         $(this).css("background-image", "url(/IMG/titanic.png)");
         $(this).css("background-size", "100px 100px");
 
@@ -61,6 +60,40 @@ function DrawGameBoard() {
         //$("#" + randomY + randomX).style.backgroundColor = "pink";
 
     });
+    $("#" + boat[1]).click(function () {
+
+        $(this).css("background-image", "url(/IMG/titanic.png)");
+        $(this).css("background-size", "100px 100px");
+
+
+        //css("background-color", "pink");
+
+        //$("#" + randomY + randomX).style.backgroundColor = "pink";
+
+    });
+    $("#" + boat[2]).click(function () {
+
+        $(this).css("background-image", "url(/IMG/titanic.png)");
+        $(this).css("background-size", "100px 100px");
+
+
+        //css("background-color", "pink");
+
+        //$("#" + randomY + randomX).style.backgroundColor = "pink";
+
+    });
+    $("#" + boat[3]).click(function () {
+
+        $(this).css("background-image", "url(/IMG/titanic.png)");
+        $(this).css("background-size", "100px 100px");
+
+
+        //css("background-color", "pink");
+
+        //$("#" + randomY + randomX).style.backgroundColor = "pink";
+
+    });
+    
 
 }
 
