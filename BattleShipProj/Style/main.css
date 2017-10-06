@@ -1,2 +1,7 @@
-﻿body {
+﻿.gameButton {
+    float:left;
+    height: 100px;
+    width: 100px;
+    outline: 1px solid;
+
 }
