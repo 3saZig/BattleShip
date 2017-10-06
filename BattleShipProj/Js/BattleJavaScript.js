@@ -1,8 +1,6 @@
-﻿$(document).ready(function () {
-
-
-    $("#loadGameButton").click(DrawGameBoard);
-
+﻿$(document).ready(function()
+{
+    $("#laddaKnappen").click(DrawGameBoard);
 
 
 
@@ -10,17 +8,17 @@
 );
 
 function DrawGameBoard(){
-    var difficultyLevelForm = document.getElementById("difficultySelectorGroup");
+    var form = document.getElementById("difficultySelector");
 
-    var difficultyLevel = form.element["difficultySelector"].value; 
-    alert(difficultyLevel);
-    var size; 
+    var difficultyLevel = form.elements["difficulty"].value;
+
+
+    var size;
 
     //switch (difficultyLevel) {
-    //    case 
+    //    case:
+    //    default:
     //}
-
-    //}
-    
+    alert(difficultyLevel);
 
 }

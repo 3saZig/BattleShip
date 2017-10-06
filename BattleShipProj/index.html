@@ -2,26 +2,23 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <script src="Scripts/jquery-3.2.1.js"></script>
+    <script src="Scripts/jquery-3.2.1.min.js"></script>
     <script src="Js/BattleJavaScript.js"></script>
-    <title></title>
-   
+    <link href="Style/main.css" rel="stylesheet" />
+    <title>BattleShip</title>
 </head>
 <body>
+    
+    <form id="difficultySelector">
+        <input type="button" id="laddaKnappen" value="Ladda spel" />
+        <label><input type="radio" name="difficulty" value="easy"  checked> Lätt</label>
+        <label><input type="radio" name="difficulty" value="medium"> Medel</label>
+        <label><input type="radio" name="difficulty" value="hard"> Svår</label>
+    </form>
+
     <div id="gameBoard">
-        
+
 
     </div>
-
-    <form id="difficultySelectorGroup">
-        <input type="button" id="loadGameButton" value="Ladda Spel" />
-
-        <label><input type="radio" name="difficultySelector" value="easy" checked> Lätt</label>
-        <label><input type="radio" name="difficultySelector" value="medium"> Medel</label>
-        <label><input type="radio" name="difficultySelector" value="hard"> Svår</label>
-
-    </form>
-    
-
 </body>
 </html>
