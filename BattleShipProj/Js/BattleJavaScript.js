@@ -16,39 +16,26 @@ function DrawGameBoard(){
     var size;
 
     switch (difficultyLevel) {
-
-        case 'easy':
-            size = 5;
-            break; 
-
-        case 'medium':
-            size = 10; 
-            break; 
-
-        case 'hard':
-            size = 15; 
-            break; 
-
-        default:
+        case 'easy': size = 5; break;
+        case 'medium': size = 10; break;
+        case 'hard': size = 15; break;
+        default: break;
     }
 
-    var gameBoardArray = new Array(size);
+    document.getElementById("wrapper").style.height = (size * 100) + "px";
+    document.getElementById("wrapper").style.width = (size * 100) + "px";
+    
 
-    for (var i = 0; i < gameBoardArray.length; i++) {
-        gameBoardArray[i] = new Array(size); 
-    }
+    for (var i = 0; i < size; i++) {
+        //$("#gameBoard").append('<br>');
 
-    for (var i = 0; i < size .lengh; i++) {
-        $("#gameBoard").append('<br>');
-        for (var j = 0; j < gameBoardArray.length; j++) {
-            $("#gameBoard").append(i, j, '  '); 
-
+        for (var j = 0; j < size; j++) {
+            $("#gameBoard").append('<div class="gameButton" id="' + i + j + '">hej</div>');
         }
     }
+    
 
     
 
-
-    alert(difficultyLevel);
 
 }
