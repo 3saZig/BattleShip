@@ -108,6 +108,8 @@ function DrawGameBoard() {
 function CheckIfRight() {
     //en metod som kollar om det är träff och byter klass till träff eller miss.
     // om spelaren vunnit kan man inte längre klicka.
+
+    //test av animationer (med jquery-plugin för färganimation)
     if (boatsLeft !== 0) {
         if ($(this).hasClass("gameButton")) {
             $("#clicks").animate({ fontSize: "+=10px", color: "#ff000c" }, 300);
