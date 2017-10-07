@@ -23,11 +23,13 @@ function DrawGameBoard() {
 
     switch (difficultyLevel) {
         case 'easy': size = 5; boat = new Array(1); break;
-        case 'medium': size = 10; boat = new Array(2); break;
+        case 'medium': size = 5; boat = new Array(2); break;
         case 'hard': size = 15; boat = new Array(3); break;
         default: break;
     }
     tries = boat.length;
+    //har lagt till en margin på rutorna och förstorar därför fältet något.
+    //har testat att animera vid klick, men det gick sådär.
     document.getElementById("wrapper").style.height = (size * 110) + "px";
     document.getElementById("wrapper").style.width = (size * 110) + "px";
     
@@ -102,7 +104,7 @@ function DrawGameBoard() {
 }
 
 function CheckIfRight() {
-
+    //en metod som kollar om det är träff och byter klass till träff eller miss.
     
     for (var i = 0; i < boat.length; i++) {
         if ($(this).attr("id") == boat[i] && $(this).attr("class") == "gameButton") {
@@ -112,12 +114,11 @@ function CheckIfRight() {
             tries--;
             numberOfClicks++;
         }
-        else if ($(this).attr("class") == "gameButton") {
-            $(this).removeClass("gameButton");
-            $(this).addClass("missedBoat");
-            numberOfClicks++;
-        }
-
+    }
+    if ($(this).attr("class") == "gameButton") {
+        $(this).removeClass("gameButton");
+        $(this).addClass("missedBoat");
+        numberOfClicks++;
     }
     SetInfoText();
    
@@ -126,8 +127,11 @@ function CheckIfRight() {
   
 }
 function SetInfoText() {
+    //counters för klick och träffade båtar. Träffade båtar dyker bara upp om det finns mer än en båt.
     document.getElementById("clicks").innerHTML = numberOfClicks.toString();
-    
+    if (boat.length > 1) {
+        $("#boatsHit").text($(".placedBoat").length)
+    }
 
 }
 
