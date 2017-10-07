@@ -3,28 +3,31 @@
 <head>
     <meta charset="utf-8" />
     <script src="Scripts/jquery-3.2.1.min.js"></script>
+    <!-- har lagt till ett jquery-plugin för färganimation -->
+    <script src="Scripts/jquery.color-2.1.2.min.js"></script>
     <script src="Js/BattleJavaScript.js"></script>
     <link href="Style/main.css" rel="stylesheet" />
     <title>BattleShip</title>
 </head>
 <body>
-    
-    <form id="difficultySelector">
-        <input type="button" id="laddaKnappen" value="Ladda spel" />
-        <label><input type="radio" name="difficulty" value="easy"  checked> Lätt</label>
-        <label><input type="radio" name="difficulty" value="medium"> Medel</label>
-        <label><input type="radio" name="difficulty" value="hard"> Svår</label>
-    </form>
-    <div id="wrapper">
-        <div id="gameBoard">
+    <div id="superWrapper">
+        <form id="difficultySelector">
+            <input type="button" id="laddaKnappen" value="Ladda spel" />
+            <label><input type="radio" name="difficulty" value="easy" checked> Lätt</label>
+            <label><input type="radio" name="difficulty" value="medium"> Medel</label>
+            <label><input type="radio" name="difficulty" value="hard"> Svår</label>
+        </form>
+        <div id="wrapper">
+            <div id="gameBoard">
 
+
+            </div>
+        </div>
+        <div id="gameInfo">
+            <p id="boatsHit"></p>
+            <p id="clicks">abc</p>
 
         </div>
-    </div>
-    <div id="gameInfo">
-        <p id="boatsHit"></p>
-        <p id="clicks">abc</p>
-
     </div>
 
 </body>

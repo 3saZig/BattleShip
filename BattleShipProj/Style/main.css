@@ -19,7 +19,15 @@
     background-size: 100px 100px;
 }
 #gameInfo{
-    height: 100px;
-    width:100px;
-   
+    height: auto;
+    width:auto;
+   float: left;
+    font-size:50px;
+}
+#wrapper{
+    float:left;
+}
+#swuperWrapper{
+
+    overflow: auto;
 }

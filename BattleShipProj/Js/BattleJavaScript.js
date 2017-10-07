@@ -1,4 +1,4 @@
-﻿var randomY, randomX, boat, tries; 
+﻿var randomY, randomX, boat, boatsLeft; 
 var numberOfClicks = 0;
 
 $(document).ready(function ()
@@ -23,11 +23,11 @@ function DrawGameBoard() {
 
     switch (difficultyLevel) {
         case 'easy': size = 5; boat = new Array(1); break;
-        case 'medium': size = 5; boat = new Array(2); break;
+        case 'medium': size = 10; boat = new Array(2); break;
         case 'hard': size = 15; boat = new Array(3); break;
         default: break;
     }
-    tries = boat.length;
+    boatsLeft = boat.length;
     //har lagt till en margin på rutorna och förstorar därför fältet något.
     //har testat att animera vid klick, men det gick sådär.
     document.getElementById("wrapper").style.height = (size * 110) + "px";
@@ -50,8 +50,10 @@ function DrawGameBoard() {
         alert(boat[i]);
     }
     SetInfoText();
-
+    
     $(".gameButton").click(CheckIfRight);
+
+    
    
 
     //$("#" + boat[0]).click(function () {
@@ -105,34 +107,52 @@ function DrawGameBoard() {
 
 function CheckIfRight() {
     //en metod som kollar om det är träff och byter klass till träff eller miss.
-    
-    for (var i = 0; i < boat.length; i++) {
-        if ($(this).attr("id") == boat[i] && $(this).attr("class") == "gameButton") {
-            alert($(this).attr("id"));
+    // om spelaren vunnit kan man inte längre klicka.
+    if (boatsLeft !== 0) {
+        if ($(this).hasClass("gameButton")) {
+            $("#clicks").animate({ fontSize: "+=10px", color: "#ff000c" }, 300);
+            $("#clicks").animate({ fontSize: "-=10px", color: "#000000" }, 300);
+        }
+
+        for (var i = 0; i < boat.length; i++) {
+            if ($(this).attr("id") == boat[i] && $(this).attr("class") == "gameButton") {
+                $(this).removeClass("gameButton");
+                $(this).addClass("placedBoat");
+                boatsLeft--;
+                numberOfClicks++;
+            }
+        }
+        if ($(this).attr("class") == "gameButton") {
             $(this).removeClass("gameButton");
-            $(this).addClass("placedBoat");
-            tries--;
+            $(this).addClass("missedBoat");
             numberOfClicks++;
         }
-    }
-    if ($(this).attr("class") == "gameButton") {
-        $(this).removeClass("gameButton");
-        $(this).addClass("missedBoat");
-        numberOfClicks++;
-    }
-    SetInfoText();
-   
-    
+        SetInfoText();
 
-  
+
+        if (boatsLeft === 0) {
+            Winner();
+        }
+    }
+
+
 }
 function SetInfoText() {
+  
     //counters för klick och träffade båtar. Träffade båtar dyker bara upp om det finns mer än en båt.
     document.getElementById("clicks").innerHTML = numberOfClicks.toString();
+    
+
     if (boat.length > 1) {
         $("#boatsHit").text($(".placedBoat").length)
+       
     }
+   
+}
+function Winner() {
 
+
+    alert("Vinst!");
 }
 
 
