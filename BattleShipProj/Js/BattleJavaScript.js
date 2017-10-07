@@ -112,8 +112,8 @@ function CheckIfRight() {
     //test av animationer (med jquery-plugin för färganimation)
     if (boatsLeft !== 0) {
         if ($(this).hasClass("gameButton")) {
-            $("#clicks").animate({ fontSize: "+=10px", color: "#ff000c" }, 300);
-            $("#clicks").animate({ fontSize: "-=10px", color: "#000000" }, 300);
+            $("#clicks").animate({ fontSize: "+=10px", color: "#ff000c" }, 100);
+            $("#clicks").animate({ fontSize: "-=10px", color: "#000000" }, 100);
         }
 
         for (var i = 0; i < boat.length; i++) {
