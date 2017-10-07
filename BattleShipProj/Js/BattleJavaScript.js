@@ -1,4 +1,5 @@
-﻿var randomY, randomX, boat; 
+﻿var randomY, randomX, boat, tries; 
+var numberOfClicks = 0;
 
 $(document).ready(function ()
 {
@@ -11,7 +12,7 @@ $(document).ready(function ()
 
 function DrawGameBoard() {
 
-    $("#difficultySelector").toggle(); 
+    $("#difficultySelector").fadeOut(); 
 
     var form = document.getElementById("difficultySelector");
 
@@ -26,17 +27,16 @@ function DrawGameBoard() {
         case 'hard': size = 15; boat = new Array(3); break;
         default: break;
     }
-
-    document.getElementById("wrapper").style.height = (size * 100) + "px";
-    document.getElementById("wrapper").style.width = (size * 100) + "px";
+    tries = boat.length;
+    document.getElementById("wrapper").style.height = (size * 110) + "px";
+    document.getElementById("wrapper").style.width = (size * 110) + "px";
     
 
     for (var i = 0; i < size; i++) {
-        //$("#gameBoard").append('<br>');
 
         for (var j = 0; j < size; j++) {
             $("#gameBoard").append('<div class="gameButton" id="' + i + j + '"></div>');
-            $("#" + i + j ).css("background-image", "url(/IMG/stormySea.jpg)");
+            
 
         }
     }
@@ -47,56 +47,89 @@ function DrawGameBoard() {
         boat[i] = (randomY.toString() + randomX.toString());
         alert(boat[i]);
     }
+    SetInfoText();
+
+    $(".gameButton").click(CheckIfRight);
+   
+
+    //$("#" + boat[0]).click(function () {
+
+    //    $(this).css("background-image", "url(/IMG/titanic.png)");
+    //    $(this).css("background-size", "100px 100px");
+    //    tries--
+        
+    //    if (tries == 0) {
+    //        alert("GRATTIS!");
+    //    }
+
+    //});
+    //$("#" + boat[1]).click(function () {
+
+    //    $(this).css("background-image", "url(/IMG/titanic.png)");
+    //    $(this).css("background-size", "100px 100px");
+    //    tries--
+
+        
+    //    if (tries == 0) {
+    //        alert("GRATTIS!");
+    //    }
+
+    //});
+    //$("#" + boat[2]).click(function () {
+    //    tries--
+    //    $(this).css("background-image", "url(/IMG/titanic.png)");
+    //    $(this).css("background-size", "100px 100px");
+
+
+       
+    //    if (tries == 0) {
+    //        alert("GRATTIS!");
+    //    }
+    //});
+    //$("#" + boat[3]).click(function () {
+    //    tries--
+    //    $(this).css("background-image", "url(/IMG/titanic.png)");
+    //    $(this).css("background-size", "100px 100px");
+
+
+       
+    //    if (tries == 0) {
+    //        alert("GRATTIS!");
+    //    }
+    //});
+    
+    
+}
+
+function CheckIfRight() {
+
+    
+    for (var i = 0; i < boat.length; i++) {
+        if ($(this).attr("id") == boat[i] && $(this).attr("class") == "gameButton") {
+            alert($(this).attr("id"));
+            $(this).removeClass("gameButton");
+            $(this).addClass("placedBoat");
+            tries--;
+            numberOfClicks++;
+        }
+        else if ($(this).attr("class") == "gameButton") {
+            $(this).removeClass("gameButton");
+            $(this).addClass("missedBoat");
+            numberOfClicks++;
+        }
+
+    }
+    SetInfoText();
+   
     
 
-    $("#" + boat[0]).click(function () {
-
-        $(this).css("background-image", "url(/IMG/titanic.png)");
-        $(this).css("background-size", "100px 100px");
-
-
-            //css("background-color", "pink");
-
-        //$("#" + randomY + randomX).style.backgroundColor = "pink";
-
-    });
-    $("#" + boat[1]).click(function () {
-
-        $(this).css("background-image", "url(/IMG/titanic.png)");
-        $(this).css("background-size", "100px 100px");
-
-
-        //css("background-color", "pink");
-
-        //$("#" + randomY + randomX).style.backgroundColor = "pink";
-
-    });
-    $("#" + boat[2]).click(function () {
-
-        $(this).css("background-image", "url(/IMG/titanic.png)");
-        $(this).css("background-size", "100px 100px");
-
-
-        //css("background-color", "pink");
-
-        //$("#" + randomY + randomX).style.backgroundColor = "pink";
-
-    });
-    $("#" + boat[3]).click(function () {
-
-        $(this).css("background-image", "url(/IMG/titanic.png)");
-        $(this).css("background-size", "100px 100px");
-
-
-        //css("background-color", "pink");
-
-        //$("#" + randomY + randomX).style.backgroundColor = "pink";
-
-    });
+  
+}
+function SetInfoText() {
+    document.getElementById("clicks").innerHTML = numberOfClicks.toString();
     
 
 }
-
 
 
 

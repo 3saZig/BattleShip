@@ -1,7 +1,25 @@
-﻿.gameButton {
-    float:left;
+﻿.gameButton, .placedBoat, .missedBoat {
+    float: left;
     height: 100px;
     width: 100px;
     outline: 1px solid;
+    margin: 5px;
+    
+}
+.gameButton {
+    background-image: url(../IMG/stormySea.jpg);
+}
 
+.placedBoat {
+    background-image: url(../IMG/titanic.png);
+    background-size: 100px 100px;
+}
+.missedBoat {
+    background-image: url('../IMG/bomb.jpg');
+    background-size: 100px 100px;
+}
+#gameInfo{
+    height: 100px;
+    width:100px;
+   
 }

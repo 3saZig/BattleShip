@@ -68,6 +68,7 @@
   <ItemGroup>
     <None Include="packages.config" />
     <None Include="Scripts\jquery-3.2.1.intellisense.js" />
+    <Content Include="IMG\bomb.jpg" />
     <Content Include="IMG\stormySea.jpg" />
     <Content Include="IMG\titanic.png" />
     <Content Include="Js\BattleJavaScript.js" />
